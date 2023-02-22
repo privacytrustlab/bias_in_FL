@@ -1,0 +1,43 @@
+common_args:
+  training_type: "simulation"
+  random_seed: 0
+tracking_args:
+  log_file_dir: ./log
+  enable_wandb: false
+  wandb_key: None
+  wandb_entity: None
+  wandb_project: None
+  run_name: "fedavg"
+  save_epoches: 200 # save the snapshot of the model
+data_args:
+  partition: "1000_2000_2000" # train test val
+  dataset: "census"
+  data_cache_dir: "../data/census/data"
+  attribute: "race"
+  task: "employment"
+  load_dataset: true
+model_args:
+  model: "two-layer"
+  num_hidden: 64
+  save_model_name: "fedavg"
+train_args:
+  federated_optimizer: "FedAvg" #Local (FL or standalone training)
+  client_id_list: "[]"
+  users: "[]"
+  client_num_in_total: 51
+  client_num_per_round: 51
+  comm_round: 200
+  epochs: 1
+  batch_size: 32
+  client_optimizer: sgd
+  learning_rate: 0.1
+  weight_decay: 0.005
+  cluster_num: 0
+  run_folder: ""
+validation_args:
+  frequency_of_the_test: 1
+device_args:
+  using_gpu: true
+  gpu_id: 0
+comm_args:
+  backend: "single_process"
