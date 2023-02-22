@@ -10,9 +10,9 @@ In our paper, we show that participating in federated learning can be detrimenta
 
 ## Dependencies
 
-Our implementation of Federated Learning is based on the [FedML library](https://github.com/FedML-AI/FedML) and we use the ML tasks provided by forlfork table.
+Our implementation of federated learning is based on the [FedML library](https://github.com/FedML-AI/FedML), and we use the machine learning tasks provided by [forlfork table]().
 
-and we tested our code based on the tested on `Python 3.8.13` and `cuda 11.4`. The essential environments are listed in the `environment.yml` file. Run the following command to create the conda environment:
+We tested our code on `Python 3.8.13` and `cuda 11.4`. The essential environments are listed in the `environment.yml` file. Run the following command to create the conda environment:
 
 ```
 conda env create -f environment.yml
@@ -22,34 +22,38 @@ conda env create -f environment.yml
 
 #### 1. Training the models for different settings.
 
-To run federated learning on Income dataset, use the command:
+To run federated learning on the Income dataset, use the command:
 
 ```
 python main.py --cf config/config_fedavg_income.yaml
 ```
 
-Similarly, to run the centralized training, using the following command:
+Similarly, to run centralized training, use the following command:
 
 ```
 python main.py --cf config/config_centralized_income.yaml
 ```
 
-Standalone training:
+For standalone training, use the command:
 
 ```
 python main.py --cf config/config_standalone_income.yaml
 ```
 
-We report the average results over five different runs. Thus, to reproduce the results, run the command five times with different random seeds, which is indicated by common_args.random_seed in the YAML file.
+We report the average results over five different runs. To reproduce the results, run the command five times with different random seeds, which are indicated by `common_args.random_seed` in the YAML file.
 
-To get the results on other datasets (e.g., Health, employment dataset), run the `main.py` file with `config/config_standalone_{dataset}.yaml`, where the dataset can be health, employment, or income.
+To get the results on other datasets (e.g., Health, Employment), run the `main.py` file with `config/config_standalone_{dataset}.yaml`, where the dataset can be `health`, `employment`, or `income`.
 
-#### 2.
+#### 2. Save all the information.
 
-###
+Run the following command to get the performance of the models for plotting figures:
 
-###
+```
+python save_information.py --task income
+```
 
-In order to get the results and plots presented in the paper, please follow the following
+By default, the script collects the prediction information from 5 runs with random seeds 0 to
 
-The implementation of the FedAvg is in `fedavg` folder, and the implementation of other FL algorithms is in `other_fl`. Next, we give examples of how to run FedAvg algorithm.
+#### 3. Generate figures
+
+To generate the figures in the paper, run the `plotting.ipynb` Jupyter notebook.
