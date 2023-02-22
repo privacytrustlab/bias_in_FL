@@ -10,7 +10,7 @@ In our paper, we show that participating in federated learning can be detrimenta
 
 ## Dependencies
 
-Our implementation of federated learning is based on the [FedML library](https://github.com/FedML-AI/FedML), and we use the machine learning tasks provided by [forlfork table]().
+Our implementation of federated learning is based on the [FedML library](https://github.com/FedML-AI/FedML), and we use the machine learning tasks provided by [folktables table](https://github.com/socialfoundations/folktables).
 
 We tested our code on `Python 3.8.13` and `cuda 11.4`. The essential environments are listed in the `environment.yml` file. Run the following command to create the conda environment:
 
